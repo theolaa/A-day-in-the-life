@@ -1,0 +1,16 @@
+[X] HELP
+[X] SAVE
+[X] SCORE
+[X] QUIT, EXIT
+[X] MOVE GO
+[X] BACK
+[X] USE
+[X] LOOK
+[X] TAKE
+[X] GRAB
+[X] DROP
+[X] INVENTORY, ITEMS
+
+	[X] = finished
+	[-] = partially done
+  	[ ] = not started

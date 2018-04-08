@@ -1,0 +1,103 @@
+<!DOCTYPE GWML>
+<game>
+	<locations>
+		<location>
+			<name>
+				Test Cell 1
+			</name>
+			<description>
+				A deep dark void of nothingness for test the XML loading
+				method.
+			</description>
+			<id>
+				testCell_1
+			</id>
+			<items>
+				<item>
+					<name>
+					Test Item
+				</name>
+				<description>
+					And item to test the XML loading method
+				</description>
+				<mass>
+					0
+				</mass>
+				<type>
+					0
+				</type>
+				<value>
+					1000000
+				</value>
+				</item>
+			</items>
+			<connects>
+				testCell_2
+			</connects>
+		</location>
+		<location>
+			<name>
+				Test Cell 2
+			</name>
+			<description>
+				A deep dark void of nothingness for test the XML loading
+				method.
+			</description>
+			<id>
+				testCell_2
+			</id>
+			<items>
+				<item>
+					<name>
+					Test Item
+				</name>
+				<description>
+					And item to test the XML loading method
+				</description>
+				<mass>
+					0
+				</mass>
+				<type>
+					0
+				</type>
+				<value>
+					1000000
+				</value>
+				</item>
+			</items>
+			<connects>
+				testCell_1
+			</connects>
+		</location>
+	</locations>
+	<player>
+		<location>
+			testCell_1
+		</location>
+		<items>
+			<item>
+				<name>
+					Inventory Item
+				</name>
+				<description>
+					An Inventory item to test how the player's inventory is loaded.
+				</description>
+				<mass>
+					10000
+				</mass>
+				<type>
+					0
+				</type>
+				<value>
+					10
+				</value>
+			</item>
+		</items>
+	</player>
+	<history>
+		testCell_2
+		testCell_1
+		testCell_2
+		testCell_1
+	</history>
+</game>

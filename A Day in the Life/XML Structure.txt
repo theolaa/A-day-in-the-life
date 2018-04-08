@@ -1,0 +1,49 @@
+Location Structure:
+	Name
+	Description
+	ID
+	Items
+		Item*
+	Connects
+	Triggers
+		Trigger*
+		
+Item Structure:
+	Name
+	Description
+	Use Text
+	Type
+	Mass
+	Value
+	
+	
+	(*) indicates many such items can be nested.
+	
+		
+		
+		<location>
+			<name>
+
+			</name>
+			<description>
+				
+			</description>
+			<id>
+				
+			</id>
+			<items>
+			</items>
+			<connects>
+				none
+				none
+				none
+				none
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					NONE
+					Shouldn't be triggered
+				</trigger>
+			</triggers>
+		</location>
