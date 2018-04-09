@@ -5,8 +5,8 @@
 package game;
 
 import java.io.File;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //A class for loading game data from a file into the program.
 public class GameLoader {
@@ -387,40 +387,40 @@ public class GameLoader {
 		input.remove(0);
 
 		input.remove(input.size() - 1);
-		
+
 		while(!input.isEmpty()) {
-			
+
 			input.remove(0);
-			
+
 			while (!input.get(0).equals("</trigger>")) {
-				
+
 				String mustHave = input.get(0);
 				input.remove(0);
-				
+
 				String item = input.get(0);
 				input.remove(0);
-				
+
 				String actionText = "";
-				
+
 				while(!input.get(0).equals("</trigger>") ) {
-					
+
 					actionText += "\n" + input.get(0);
-					input.remove(0);	
-					
+					input.remove(0);
+
 				}
-				
+
 				boolean mustHaveBool = (mustHave.equals("MUST_HAVE")) ? true : false;
-				
+
 				Trigger temp = new Trigger(item, actionText, mustHaveBool);
-				
+
 				triggers.add(temp);
-				
+
 			}
-			
+
 			input.remove(0);
-			
+
 		}
-		
+
 		// for (String temp : input) System.out.println(temp);
 
 		return new Location(name, description, id, connections, items, triggers);

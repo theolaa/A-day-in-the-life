@@ -44,25 +44,25 @@ public class Player {
 		return this.location;
 
 	}
-	
+
 	boolean addItem(Item item) {
-		
+
 		if (inventory.addItem(item)) return true;
-		
+
 		return false;
-		
+
 	}
-	
+
 	ArrayList<Item> getItems() {
-		
+
 		return inventory.items;
-		
+
 	}
-	
+
 	void removeItem(Item item) {
-		
+
 		inventory.removeItem(item);
-		
+
 	}
 
 	double getWalletBalance() {
@@ -104,11 +104,11 @@ public class Player {
 		inventory.describeAll();
 
 	}
-	
+
 	Inventory inventory() {
-		
+
 		return inventory;
-		
+
 	}
 
 }

@@ -5,8 +5,8 @@
 package game;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class GameSaver {
 
@@ -56,12 +56,12 @@ public class GameSaver {
 		file.println("<history>");
 
 		i++;
-		
+
 		for (String temp : locationHistory) {
-			
+
 			tabinate(i);
 			file.println(temp);
-			
+
 		}
 
 		tabinate(--i);

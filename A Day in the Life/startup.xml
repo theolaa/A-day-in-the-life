@@ -613,7 +613,7 @@
 				Elevator Hallway
 			</name>
 			<description>
-				You find yourself at the beginning of a long hallway. The alarm still rings in the 
+				You are at the beginning of a long hallway. The alarm still rings in the 
 				background, and the entire length of the hall is bathed in rotating red emergency lights.
 				
 				New debris has rendered the ELEVATOR behind you inaccessible, not that you could use it anyways.
@@ -640,7 +640,40 @@
 		</location>
 		<location>
 			<name>
-				Hallway
+				Junction Hallway
+			</name>
+			<description>
+				You are roughly in the middle of the hallway. Every time the rotating red lights pass along
+				the walls, you can see two doorways, one on each side of you. At the end of the hall you can make 
+				out what you believe is an EXIT sign.
+				
+				The END of the hall is in front of you.
+				The BEGINNING of the hall is behind you.
+				There is a DOOR to your left.
+				There is a DOOR to you right
+			</description>
+			<id>
+				complexHall02
+			</id>
+			<items>
+			</items>
+			<connects>
+				none
+				complexStorage
+				none
+				complexLabMain
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					NONE
+					Shouldn't be triggered
+				</trigger>
+			</triggers>
+		</location>
+		<location>
+			<name>
+
 			</name>
 			<description>
 				
@@ -689,7 +722,7 @@
 					Shouldn't be triggered
 				</trigger>
 			</triggers>
-		</location>												
+		</location>														
 	</locations>
 	<player>
 		<location>

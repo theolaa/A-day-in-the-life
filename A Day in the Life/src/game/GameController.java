@@ -124,7 +124,8 @@ public class GameController {
 		// Only describes the situation if a game is in progress.
 		if (inGame) {
 
-			System.out.println("\n=====================================\n");
+			System.out.println(
+					"\n========================================================================================================================\n");
 
 			describeSituation();
 
@@ -335,8 +336,8 @@ public class GameController {
 			// Informs the player about the games scoring, or lack thereof
 			else if (COM.SCORE.name().startsWith(action)) {
 
-				System.out.println("This game has no score.");
-				System.out.println("The point is to make it through the day");
+				System.out.println("This game has no score; In an all-or-nothing fashion,");
+				System.out.println("your only goal is to make it through the day");
 				System.out.println("without making a fool of yourself.");
 				System.out.println();
 				System.out.println("Oh an maybe you'll discover some secrets along the way.");
@@ -434,7 +435,7 @@ public class GameController {
 
 			// Gives some Command feedback
 			System.out.println("Player moved " + direction);
-			
+
 			// Adds the location ID of the current location to the top of locationHistory.
 			locationHistory.add(player.location().getLocationId());
 
@@ -475,17 +476,15 @@ public class GameController {
 
 		}
 
-		System.out.println("Returned to previous location");
+		if (!tempLoc.isTriggered(player.inventory())) {
 
-		player.setLocation(tempLoc);
+			System.out.println("Returned to previous location");
 
-		locationHistory.remove(lastIndex);
+			player.setLocation(tempLoc);
 
-		advanceTurn = true;
+			locationHistory.remove(lastIndex);
 
-		if (player.location().isTriggered(player.inventory())) {
-			inGame = false;
-			gameFinished = true;
+			advanceTurn = true;
 
 		}
 
