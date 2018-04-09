@@ -6,6 +6,7 @@ package game;
 
 public class Item {
 
+	// Some default values
 	private String name = "Default Name", description = "Default Description", useText = "Default Usage";
 
 	private int mass = 10, type = 0, value;
@@ -24,50 +25,59 @@ public class Item {
 
 		value = v;
 
-		//outAll();
-
 	}
 
+	// Gets the item's name
 	String name() {
 
 		return name.toUpperCase();
 
 	}
 
+	// Gets the item's description
 	String describe() {
 
 		return description;
 
 	}
 
+	// Gets the item's useage text
 	String use() {
 
 		return useText;
 
 	}
 
+	// Returns a human readable representation of the item type.
 	String getType() {
 
-		if (type == 0) return "GENERIC";
-		if (type == 1) return "KEY";
-		if (type == 2) return "INTERACTABLE";
-		else return "GENERIC";
-
+		if (type == 0)
+			return "GENERIC";
+		if (type == 1)
+			return "KEY";
+		if (type == 2)
+			return "INTERACTABLE";
+		else
+			return "GENERIC";
 
 	}
 
+	// Gets the mass of the item
 	int getMass() {
 
 		return mass;
 
 	}
 
+	// Gets the value of the item
 	int getValue() {
 
 		return value;
 
 	}
 
+	// Outputs all information about item. Not used in final game, just for
+	// developing.
 	void outAll() {
 
 		System.out.println("Name: " + name);

@@ -954,7 +954,8 @@
 				The alarm ringing fades slightly as you get further away from the source of the noise.
 				Up ahead a glowing red "EXIT" sign is now clearly visible, with a sort of blast-door
 				and scanner set into the wall beneath it.
-				 Surely this is the way out.
+				
+				Surely this is the way out.
 				
 				The BLAST DOOR is in front of you.
 				The HALL is behind you.
@@ -1051,7 +1052,7 @@
 	</locations>
 	<player>
 		<location>
-			livingRoom
+			bedroom
 		</location>
 		<items>
 			<item>

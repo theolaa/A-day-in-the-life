@@ -24,15 +24,11 @@ public class GameController {
 	private boolean gameFinished = false;
 	private boolean gameWon = false;
 
-	String victoryText = " Finally, your eyes re-adjust to the light, and you see that it is just sunlight streaming in through\r\n" +
-			" the window in your bedroom. Your alarm clock shows '07:30', and the alarm is blaring in your ear. \r\n" +
-			" You groggily fumble around until you manage to turn it off.\r\n" +
-			" \r\n" +
-			" Time to start your day, head to work, all that normal stuff.\r\n" +
-			" \r\n" +
-			" Just another day.\r\n" +
-			" \r\n" +
-			" A day in the life...";
+	String victoryText = " Finally, your eyes re-adjust to the light, and you see that it is just sunlight streaming in through\r\n"
+			+ " the window in your bedroom. Your alarm clock shows '07:30', and the alarm is blaring in your ear. \r\n"
+			+ " You groggily fumble around until you manage to turn it off.\r\n" + " \r\n"
+			+ " Time to start your day, head to work, all that normal stuff.\r\n" + " \r\n" + " Just another day.\r\n"
+			+ " \r\n" + " A day in the life...";
 
 	// Scanner for input
 	private Scanner s = new Scanner(System.in);
@@ -90,7 +86,6 @@ public class GameController {
 					System.out.println("\nGame Over...");
 
 				}
-
 
 				gameFinished = false;
 				gameWon = false;
@@ -158,8 +153,6 @@ public class GameController {
 			}
 
 		}
-
-
 
 		// This is what gets commands over and over until it is indicated that a new
 		// turn should begin.
@@ -363,7 +356,7 @@ public class GameController {
 
 			}
 
-			// Informs the player about the games scoring, or lack thereof
+			// Informs the player about the games scoring, or lack thereof.
 			else if (COM.SCORE.name().startsWith(action)) {
 
 				System.out.println("This game has no score; In an all-or-nothing fashion,");
@@ -472,17 +465,20 @@ public class GameController {
 			// Then sets the players location to the desired location.
 			player.setLocation(tempLoc);
 
+			// Signals an advance to the next turn
 			advanceTurn = true;
 
 		}
 
 	}
 
-	// Moves the player
+	// Moves the player to the last visited, available location.
 	private void moveBack() {
 
+		// Gets the index of the last element of locationHistory
 		int lastIndex = locationHistory.size() - 1;
 
+		// If there is no history, indicate that this is the case.
 		if (locationHistory.isEmpty()) {
 
 			System.out.println("You have no location history");
@@ -490,8 +486,10 @@ public class GameController {
 
 		}
 
+		// Otherwise, get a location based on the last visited location ID
 		Location tempLoc = getLocationById(locationHistory.get(lastIndex));
 
+		// If that doesn't return a match, say so.
 		if (tempLoc == null) {
 
 			System.out.println("Invalid Location");
@@ -499,6 +497,8 @@ public class GameController {
 
 		}
 
+		// Tests if the current location actually connects to the previous one ie. a
+		// fall down a cliff, or an elevator shaft perhaps... :)
 		if (!player.location().connectsWith(tempLoc.getLocationId())) {
 
 			System.out.println("You cannon return to this location.");
@@ -506,12 +506,16 @@ public class GameController {
 
 		}
 
+		// Otherwise, test if returning to the previous location would activate any
+		// triggers. If it doesn't, move the player back.
 		if (!tempLoc.isTriggered(player.inventory())) {
 
 			System.out.println("Returned to previous location");
 
 			player.setLocation(tempLoc);
 
+			// Removes the location from the locationHistory Array List so you can now
+			// return to the PREVIOUS previous location.
 			locationHistory.remove(lastIndex);
 
 			advanceTurn = true;
@@ -520,8 +524,12 @@ public class GameController {
 
 	}
 
+	// Use was kinda useless in this game. The game was mostly controlled by whether
+	// you had or didn't have certain items. I did try to make some amusing quips
+	// when you try to use different items though.
 	private void use(String object) {
 
+		// Output an appropriate error message if no item was entered to use
 		if (object == null) {
 
 			System.out.println("Proper usage is \"use [ITEM NAME]\"");
@@ -529,6 +537,7 @@ public class GameController {
 
 		}
 
+		// Search for the item in the player's inventory and use it if it's found.
 		for (Item temp : player.getItems()) {
 
 			if (temp.name().toUpperCase().equals(object.toUpperCase())) {
@@ -540,18 +549,20 @@ public class GameController {
 
 		}
 
-		// System.out.println(object + " used");
-
 	}
 
+	// Outputs the description of the location, as well as a list of the items in
+	// the location.
 	private void look() {
 
 		player.location().describe();
 
 	}
 
+	// Attempts to take an object from the current location.
 	private void take(String object) {
 
+		// Appropriate error if command was used incorrectly
 		if (object == null) {
 
 			System.out.println("Proper usage is \"take [ITEM NAME]\"");
@@ -559,10 +570,13 @@ public class GameController {
 
 		}
 
+		// Searches for the indicated item in the current location, and adds it to the
+		// players inventory and removes it from the location if it's found.
 		for (int i = 0; i < player.location().getItems().size(); i++) {
 
 			if (player.location().getItems().get(i).name().toUpperCase().equals(object.toUpperCase())) {
 
+				// Makes sure that the player has room for the item.
 				if (player.addItem(player.location().getItems().get(i))) {
 
 					player.location().removeItem(player.location().getItems().get(i));
@@ -571,20 +585,25 @@ public class GameController {
 
 				}
 
+				// Error if the player is out of inventory space.
 				System.out.println("Out of inventory space.\nDrop some items to make room.");
 				return;
 			}
 
 		}
 
-		System.out.println("Object " + object + " not found in current location");
+		// Error for if the indicated object was not found at the current location.
+		System.out.println("Item " + object + " not found in current location");
 
 	}
 
+	// Attempts to drop an item from the player's inventory to the current location.
 	private void drop(String object) {
 
+		// Declares an empty item.
 		Item item = null;
 
+		// Error if command was used incorrectly
 		if (object == null) {
 
 			System.out.println("Proper usage is \"drop [ITEM NAME]\"");
@@ -592,6 +611,7 @@ public class GameController {
 
 		}
 
+		// Searches for the indicated item in the player's inventory.
 		for (Item temp : player.inventory().items) {
 
 			if (temp.name().toUpperCase().equals(object)) {
@@ -602,12 +622,17 @@ public class GameController {
 
 		}
 
+		// If the item was found, remove it from the inventory and place it in the
+		// current location.
 		if (item != null) {
 
 			System.out.println(object + " dropped");
 
 			player.removeItem(item);
 
+			// Special case for the metal detector room where the items need to be placed in
+			// the next room so the player can retrieve them after passing through the
+			// sensor.
 			if (player.location().getLocationId().equals("officeLobby"))
 				getLocationById("officeSecurity").addItem(item);
 			else
@@ -615,12 +640,15 @@ public class GameController {
 
 		} else {
 
+			// Otherwise the item wasn't found and the game proceeds.
 			System.out.println("Item " + object + " not found");
 
 		}
 
 	}
 
+	// A utility function for the game "engine" that returns a Location object by
+	// comparing a string against known location IDs.
 	private Location getLocationById(String id) {
 
 		for (Location temp : locations) {
@@ -639,6 +667,7 @@ public class GameController {
 
 	}
 
+	// The help menu
 	private void showHelp() {
 
 		String helpText = " HELP --------------------- Displays this menu\n"
@@ -660,6 +689,7 @@ public class GameController {
 
 		System.out.println(helpText);
 
+		//Require a key-press to continue
 		System.out.println("\nPress Enter to continue");
 		@SuppressWarnings("unused")
 		String temp = s.nextLine();

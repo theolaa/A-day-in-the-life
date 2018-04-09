@@ -359,6 +359,7 @@ public class GameLoader {
 		// processItems().
 		int delin = 0;
 
+		// Finds the beginning of the connects element of a location
 		for (int i = 0; i < input.size(); i++) {
 
 			delin = i;
@@ -368,6 +369,7 @@ public class GameLoader {
 
 		}
 
+		// If <connects> was found, add them to the connections ArrayList
 		if (delin != input.size() - 1) {
 
 			input.remove(delin);
@@ -382,13 +384,16 @@ public class GameLoader {
 			input.remove(delin);
 		}
 
+		// The remaining input is just the items of a location and its triggers, so now
+		// it can be passed off for processing.
 		items = processItems(input);
 
 		input.remove(0);
 
 		input.remove(input.size() - 1);
 
-		while(!input.isEmpty()) {
+		// Gets the triggers of a location
+		while (!input.isEmpty()) {
 
 			input.remove(0);
 
@@ -402,15 +407,19 @@ public class GameLoader {
 
 				String actionText = "";
 
-				while(!input.get(0).equals("</trigger>") ) {
+				// For getting multiple lines of Action Text
+				while (!input.get(0).equals("</trigger>")) {
 
 					actionText += "\n" + input.get(0);
 					input.remove(0);
 
 				}
 
+				// Sets the mustHave boolean according to what was enterd in that field in the
+				// file.
 				boolean mustHaveBool = (mustHave.equals("MUST_HAVE")) ? true : false;
 
+				// Initializes a new trigger item, and adds it to the triggers ArrayList
 				Trigger temp = new Trigger(item, actionText, mustHaveBool);
 
 				triggers.add(temp);
@@ -421,8 +430,8 @@ public class GameLoader {
 
 		}
 
-		// for (String temp : input) System.out.println(temp);
-
+		// Location processing is complete, so now we can create a new location with all
+		// the loaded fields, and return it.
 		return new Location(name, description, id, connections, items, triggers);
 
 	}
@@ -430,6 +439,7 @@ public class GameLoader {
 	// Here is where a block of player data is processed into a Player object.
 	private Player processPlayer(ArrayList<String> input) {
 
+		// Some temporary variables for creating the Player object.
 		Location tempLocation;
 
 		String tempLocID = "livingRoom";
@@ -438,7 +448,7 @@ public class GameLoader {
 
 		input.remove(0);
 
-		// System.out.println(input.get(0));
+		// loads the location id of the player's current location as saved in the file.
 		tempLocID = input.get(0);
 
 		tempLocation = this.getLocationById(tempLocID);
@@ -446,26 +456,26 @@ public class GameLoader {
 		input.remove(0);
 		input.remove(0);
 
+		// Adds all the items in the players saved inventory to the temporary inventory.
 		tempInventory.batchAdd(processItems(input));
 
-		// for (String temp : input) System.out.println(temp);
-
+		// Returns a new Player object
 		return new Player(tempLocation, tempInventory);
 
 	}
 
+	// Processes an entire <items> element into an ArrayList of Items
 	private ArrayList<Item> processItems(ArrayList<String> input) {
 
-		// for (String temp : input) System.out.println(temp);
-
-		// System.out.println("Processing items...");
-
+		// The final ArrayList of loaded Items
 		ArrayList<Item> finalItems = new ArrayList<>();
+
+		// The loaded text of a single item to be processed.
 		ArrayList<String> itemText = new ArrayList<>();
 
 		input.remove(0);
-		// System.out.println("Removed structure tag...");
 
+		// Gets an <item> element and sends it for processing until there are none left.
 		while (!input.isEmpty() && !input.get(0).equals("</items>")) {
 
 			itemText.add(input.get(0));
@@ -484,17 +494,21 @@ public class GameLoader {
 
 		input.remove(0);
 
+		// Returns the final ArrayList of Items
 		return finalItems;
 
 	}
 
+	// Returns a single item generated from an ArrayList of text
 	private Item processItem(ArrayList<String> input) {
 
+		// Sets some default values so an item can be returned even if there is an error
+		// of sorts.
 		String name = "Default Name", description = "Default Description", useText = "Default Usage Text";
 
 		int mass = 1, type = 0, value = 1000;
-		// System.out.println("Processing an Item...");
 
+		// Removes some structure tags and then gets the name of the item.
 		input.remove(0);
 		input.remove(input.size() - 1);
 		input.remove(0);
@@ -507,10 +521,13 @@ public class GameLoader {
 
 		if (description != null || !description.trim().equals("")) {
 
+			// Makes sure that description is empty so that each newly loaded line can be
+			// appended to it.
 			description = "";
 
 		}
 
+		// Gets the entire description text
 		while (!input.get(0).equals("</description>")) {
 
 			description += " " + input.get(0);
@@ -522,6 +539,7 @@ public class GameLoader {
 		input.remove(0);
 		input.remove(0);
 
+		// Same process as for the description
 		if (useText != null || !useText.trim().equals("")) {
 
 			useText = "";
@@ -536,8 +554,10 @@ public class GameLoader {
 
 		}
 
+		// Removes the \n\t from the last line so formatting in the program isn't weird.
 		useText = useText.substring(0, useText.length() - 2);
 
+		// Removes structure tags and gets Mass, Type, and Value, in that order.
 		input.remove(0);
 		input.remove(0);
 
@@ -555,9 +575,11 @@ public class GameLoader {
 
 		value = Integer.parseInt(input.get(0));
 
+		// Empties and un-sets the input for memory's sake.
 		input.clear();
 		input = null;
 
+		// Returns a newly processed Item!
 		return new Item(name, description, useText, mass, type, value);
 
 	}

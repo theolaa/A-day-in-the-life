@@ -14,8 +14,13 @@ public class GameSaver {
 
 	PrintWriter file;
 
+	// An attempt at formatting. I represents the number of tabs to output on each
+	// line.
+	// Can be seen as the "nesting" layers.
+	// Used by the tabinate() function.
 	int i = 0;
 
+	// Generates a new PrintWriter object when this object is instantiated.
 	public GameSaver() {
 
 		try {
@@ -26,6 +31,9 @@ public class GameSaver {
 
 	}
 
+	// The meat and potatoes of the save function. It has the basic structure tags,
+	// and then calls specific functions to do the rest, all while outputting the
+	// required number of tabs to properly format the output file.
 	void save(ArrayList<Location> locations, ArrayList<String> locationHistory, Player player) {
 
 		file.println("<!DOCTYPE GWML>");
@@ -38,6 +46,7 @@ public class GameSaver {
 
 		file.println("<locations>");
 
+		// Saves all the locations to the file.
 		for (Location temp : locations)
 			saveLocation(temp);
 
@@ -47,6 +56,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<player>");
 
+		// Saves the player to the file
 		savePlayer(player);
 
 		tabinate(i);
@@ -57,6 +67,7 @@ public class GameSaver {
 
 		i++;
 
+		// Saves the location history to the file.
 		for (String temp : locationHistory) {
 
 			tabinate(i);
@@ -69,6 +80,7 @@ public class GameSaver {
 
 		file.println("</game>");
 
+		// Outputs that the file was saved successfully.
 		System.out.println("Game Saved to " + fileName);
 
 		file.close();
@@ -83,6 +95,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<name>");
 
+		// Saves the location name.
 		tabinate(++i);
 		file.println(location.getName());
 
@@ -92,6 +105,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<description>");
 
+		// Saves the location description
 		tabinate(++i);
 		file.println(location.getDescription());
 
@@ -101,6 +115,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<id>");
 
+		// Saves the location ID
 		tabinate(++i);
 		file.println(location.getLocationId());
 
@@ -110,6 +125,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<items>");
 
+		// Saves the location's items
 		for (Item temp : location.getItems())
 			saveItem(temp);
 
@@ -121,6 +137,7 @@ public class GameSaver {
 
 		i++;
 
+		// Saves the location IDs of the locations that at location connects with.
 		for (String temp : location.getConnections()) {
 
 			tabinate(i);
@@ -134,6 +151,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<triggers>");
 
+		// Saves all of a location's Triggers.
 		for (Trigger temp : location.getTriggers())
 			saveTrigger(temp);
 
@@ -145,11 +163,13 @@ public class GameSaver {
 
 	}
 
+	// Saves the Player Object.
 	void savePlayer(Player player) {
 
 		tabinate(++i);
 		file.println("<location>");
 
+		// Saves the ID of the player's current location.
 		tabinate(++i);
 		file.println(player.location().getLocationId());
 
@@ -159,6 +179,7 @@ public class GameSaver {
 		tabinate(i);
 		file.println("<items>");
 
+		// Saves all of the player's items.
 		for (Item temp : player.inventory().items)
 			saveItem(temp);
 
@@ -167,10 +188,13 @@ public class GameSaver {
 
 	}
 
+	// Saves an individual item. In order, It's name, description, use text, mass,
+	// type, and value.
 	void saveItem(Item item) {
 
 		int type = 0;
 
+		// Converts the type from its text form to its save-file integer form.
 		if (item.getType().equals("GENERIC"))
 			type = 0;
 		if (item.getType().equals("KEY"))
@@ -240,6 +264,7 @@ public class GameSaver {
 
 	}
 
+	// Saves an individual Trigger.
 	void saveTrigger(Trigger trigger) {
 
 		String mustHave = (trigger.mustHave) ? "MUST_HAVE" : "MUST_NOT_HAVE";
@@ -261,6 +286,7 @@ public class GameSaver {
 
 	}
 
+	// prints i tab characters
 	void tabinate(int n) {
 
 		for (int i = 0; i < n; i++)

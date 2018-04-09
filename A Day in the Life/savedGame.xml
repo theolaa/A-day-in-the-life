@@ -42,19 +42,19 @@
 				</item>
 					<item>
 						<name>
-							WALLET
+							PASS
 						</name>
 						<description>
-							 A worn leather WALLET that holds your id, Bank Card, and whatever loose change you happen to have.
+							 A plain lanyard that holds your work security PASS, marked with a bold "C".
 						</description>
 						<use>
-							You try to use your wallet.
+							You use the Security Pass.
 						</use>
 						<mass>
 							1
 						</mass>
 						<type>
-							0
+							1
 						</type>
 						<value>
 							0
@@ -62,66 +62,46 @@
 					</item>
 						<item>
 							<name>
-								PASS
+								REMOTE
 							</name>
 							<description>
-								 A plain lanyard that holds your work security PASS, marked with a bold "C".
+								 A black, cheap plastic REMOTE that came with the TV.
 							</description>
 							<use>
-								You use the Security Pass.
+								Nothing happens. Your T.V. has been broken for months.
 							</use>
 							<mass>
 								1
 							</mass>
 							<type>
-								1
+								2
 							</type>
 							<value>
 								0
 							</value>
 						</item>
-							<item>
-								<name>
-									REMOTE
-								</name>
-								<description>
-									 A black, cheap plastic REMOTE that came with the TV.
-								</description>
-								<use>
-									Nothing happens. Your T.V. has been broken for months.
-								</use>
-								<mass>
-									1
-								</mass>
-								<type>
-									2
-								</type>
-								<value>
-									0
-								</value>
-							</item>
-						</items>
-						<connects>
-							none
-							house
-							bedroom
-							none
-						</connects>
-						<triggers>
-							<trigger>
-								MUST_HAVE
-								NONE
-								
+					</items>
+					<connects>
+						none
+						house
+						bedroom
+						none
+					</connects>
+					<triggers>
+						<trigger>
+							MUST_HAVE
+							NONE
+							
 This should never be triggered.
-							</trigger>
-						</triggers>
-					</location>
-						<location>
-						<name>
-							BEDROOM
-						</name>
-						<description>
-							 You are in your bedroom.
+						</trigger>
+					</triggers>
+				</location>
+					<location>
+					<name>
+						BEDROOM
+					</name>
+					<description>
+						 You are in your bedroom.
  Your eyes take some time to adjust to the darkness.
  A single-size mattress lays in the corner with a rough woolen blanket
  tossed across it. Clothes lay piled on the floor.
@@ -130,20 +110,40 @@ This should never be triggered.
  
  The door to your LIVING ROOM is behind you.
  The EN SUITE BATHROOM is to your left.
-						</description>
-						<id>
-							bedroom
-						</id>
-						<items>
+					</description>
+					<id>
+						bedroom
+					</id>
+					<items>
+						<item>
+							<name>
+								CLOTHES
+							</name>
+							<description>
+								 Your CLOTHES for the day; Business casual attire, but slightly stained and very rumpled.
+							</description>
+							<use>
+								You put on your clothes.
+							</use>
+							<mass>
+								2
+							</mass>
+							<type>
+								0
+							</type>
+							<value>
+								5
+							</value>
+						</item>
 							<item>
 								<name>
-									CLOTHES
+									BLANKET
 								</name>
 								<description>
-									 Your CLOTHES for the day; Business casual attire, but slightly stained and very rumpled.
+									 A rough woolen BLANKET.
 								</description>
 								<use>
-									You put on your clothes.
+									You wrap yourself in the blanket. It's warm, but now you're itching everywhere.
 								</use>
 								<mass>
 									2
@@ -152,65 +152,15 @@ This should never be triggered.
 									0
 								</type>
 								<value>
-									5
+									3
 								</value>
 							</item>
-								<item>
-									<name>
-										BLANKET
-									</name>
-									<description>
-										 A rough woolen BLANKET.
-									</description>
-									<use>
-										You wrap yourself in the blanket. It's warm, but now you're itching everywhere.
-									</use>
-									<mass>
-										2
-									</mass>
-									<type>
-										0
-									</type>
-									<value>
-										3
-									</value>
-								</item>
-							</items>
-							<connects>
-								none
-								none
-								livingRoom
-								bathroom
-							</connects>
-							<triggers>
-								<trigger>
-									MUST_HAVE
-									NONE
-									
-This should never be triggered.
-								</trigger>
-							</triggers>
-						</location>
-							<location>
-							<name>
-								BATHROOM
-							</name>
-							<description>
-								 Despite the state of the rest of the house, your
- bathroom is surprisingly clean. Nothing else to remark.
- 
- The door back to your BEDROOM is behind you.
-							</description>
-							<id>
-								bathroom
-							</id>
-							<items>
 						</items>
 						<connects>
 							none
 							none
-							bedroom
-							none
+							livingRoom
+							bathroom
 						</connects>
 						<triggers>
 							<trigger>
@@ -223,10 +173,40 @@ This should never be triggered.
 					</location>
 						<location>
 						<name>
-							HOUSE
+							BATHROOM
 						</name>
 						<description>
-							 You are outside your house.
+							 Despite the state of the rest of the house, your
+ bathroom is surprisingly clean. Nothing else to remark.
+ 
+ The door back to your BEDROOM is behind you.
+						</description>
+						<id>
+							bathroom
+						</id>
+						<items>
+					</items>
+					<connects>
+						none
+						none
+						bedroom
+						none
+					</connects>
+					<triggers>
+						<trigger>
+							MUST_HAVE
+							NONE
+							
+This should never be triggered.
+						</trigger>
+					</triggers>
+				</location>
+					<location>
+					<name>
+						HOUSE
+					</name>
+					<description>
+						 You are outside your house.
  In front of you is a small, one story building with fading white clapboard and
  shingles beginning to peel off.
  There is a dead flower garden flanking the front steps.
@@ -234,166 +214,134 @@ This should never be triggered.
  
  Your FRONT DOOR is in front of you.
  The road and BUS STOP are behind you, down your short driveway.
-						</description>
-						<id>
-							house
-						</id>
-						<items>
-					</items>
-					<connects>
-						livingRoom
-						none
-						busStop
-						none
-					</connects>
-					<triggers>
-						<trigger>
-							MUST_HAVE
-							CLOTHES
-							
-You should probably put some clothes on.
-						</trigger>
-					</triggers>
-				</location>
-					<location>
-					<name>
-						BUS STOP
-					</name>
-					<description>
-						 Just as you take a seat to wait for the bus, it comes into
- view and lurches to a violent stop with a screech of rubber.
- 
- The bus to your OFFICE BUILDING is ahead of you.
- Your HOUSE is behind you.
 					</description>
 					<id>
-						busStop
+						house
 					</id>
 					<items>
 				</items>
 				<connects>
-					officeExterior
+					livingRoom
 					none
-					house
+					busStop
 					none
 				</connects>
 				<triggers>
 					<trigger>
 						MUST_HAVE
-						WALLET
+						CLOTHES
 						
-You have no way to to pay for you bus fare.
+You should probably put some clothes on.
 					</trigger>
 				</triggers>
 			</location>
 				<location>
 				<name>
-					OFFICE EXTERIOR
+					BUS STOP
 				</name>
 				<description>
-					 You reach the outside of your office building, an unassuming
+					 Just as you take a seat to wait for the bus, it comes into
+ view and lurches to a violent stop with a screech of rubber.
+ 
+ The bus to your OFFICE BUILDING is ahead of you.
+ Your HOUSE is behind you.
+				</description>
+				<id>
+					busStop
+				</id>
+				<items>
+			</items>
+			<connects>
+				officeExterior
+				none
+				house
+				none
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					WALLET
+					
+You have no way to to pay for you bus fare.
+				</trigger>
+			</triggers>
+		</location>
+			<location>
+			<name>
+				OFFICE EXTERIOR
+			</name>
+			<description>
+				 You reach the outside of your office building, an unassuming
  five storey structure.
  
  The front ENTRANCE is in front of you.
  The BUS STOP is behind you.
  The PARK is to your right.
  The CAFE is to your left.
-				</description>
-				<id>
-					officeExterior
-				</id>
-				<items>
-			</items>
-			<connects>
-				officeLobby
-				park
-				busStop
-				cafe
-			</connects>
-			<triggers>
-				<trigger>
-					MUST_HAVE
-					NONE
-					
+			</description>
+			<id>
+				officeExterior
+			</id>
+			<items>
+		</items>
+		<connects>
+			officeLobby
+			park
+			busStop
+			cafeExterior
+		</connects>
+		<triggers>
+			<trigger>
+				MUST_HAVE
+				NONE
+				
 This should never be triggered
-				</trigger>
-			</triggers>
-		</location>
-			<location>
-			<name>
-				PARK
-			</name>
-			<description>
-				 You decide to head over to the city park, only a block away
+			</trigger>
+		</triggers>
+	</location>
+		<location>
+		<name>
+			PARK
+		</name>
+		<description>
+			 You decide to head over to the city park, only a block away
  from your office building. In fact, you can actually see it out of your office window.
  It's well kept with plenty of places to	sit and reflect.
  The main attraction is a tranquil pond located centrally that is home
  to countless ducks and geese.
  
  Your OFFICE BUILDING is to your right, back down the road.
-			</description>
-			<id>
-				park
-			</id>
-			<items>
-				<item>
-					<name>
-						STICK
-					</name>
-					<description>
-						 A small STICK fallen from the branch of a tree.
-					</description>
-					<use>
-						You hit yourself with the stick. It hurts. What did you expect?
-					</use>
-					<mass>
-						1
-					</mass>
-					<type>
-						0
-					</type>
-					<value>
-						1
-					</value>
-				</item>
-			</items>
-			<connects>
-				none
-				officeExterior
-				none
-				none
-			</connects>
-			<triggers>
-				<trigger>
-					MUST_HAVE
-					NONE
-					
-Shouldn't be triggered
-				</trigger>
-			</triggers>
-		</location>
-			<location>
-			<name>
-				CAFE
-			</name>
-			<description>
-				 You arrive at the cute little cafe a short walk from your office building.
- The sun is shining nicely today, and the combination of
- sunlight spreading across the outdoor seating area and the smell
- of roasting coffee is rather pleasant.
- 
- Your OFFICE BUILDING is to your left, back down the road.
-			</description>
-			<id>
-				cafe
-			</id>
-			<items>
+		</description>
+		<id>
+			park
+		</id>
+		<items>
+			<item>
+				<name>
+					STICK
+				</name>
+				<description>
+					 A small STICK fallen from the branch of a tree.
+				</description>
+				<use>
+					You hit yourself with the stick. It hurts. What did you expect?
+				</use>
+				<mass>
+					1
+				</mass>
+				<type>
+					0
+				</type>
+				<value>
+					1
+				</value>
+			</item>
 		</items>
 		<connects>
 			none
-			none
-			none
 			officeExterior
+			none
+			none
 		</connects>
 		<triggers>
 			<trigger>
@@ -406,107 +354,27 @@ Shouldn't be triggered
 	</location>
 		<location>
 		<name>
-			OFFICE LOBBY
+			CAFE
 		</name>
 		<description>
-			 You tap your security pass to the sensor and enter the lobby of your office building.
- The interior is overly air-conditioned, and goosebumps
- immediatly start to form on your arms. Ahead of you is metal-detecting
- archway with a sign reminding you to empty your pockets of metallic objects before passing through.
- Your items will be waiting for you on the other side.
+			 You arrive at the cute little cafe a short walk from your office building.
+ The sun is shining nicely today, and the combination of
+ sunlight spreading across the outdoor seating area and the smell
+ of roasting coffee is rather pleasant.
  
- The ARCHWAY is in front of you.
- The EXIT is behind you.
+ The CAFE interior is in front of you.
+ Your OFFICE BUILDING is to your left, back down the road.
 		</description>
 		<id>
-			officeLobby
+			cafeExterior
 		</id>
 		<items>
 	</items>
 	<connects>
-		officeSecurity
+		cafeInterior
+		none
 		none
 		officeExterior
-		none
-	</connects>
-	<triggers>
-		<trigger>
-			MUST_HAVE
-			PASS
-			
-You don't have your security pass on you and consequently can't enter the building.
-		</trigger>
-	</triggers>
-</location>
-	<location>
-	<name>
-		OFFICE SECURITY
-	</name>
-	<description>
-		 You pass through to the other side of the scanner.
- The MAIN ATRIUM opens up in front of you.
-	</description>
-	<id>
-		officeSecurity
-	</id>
-	<items>
-</items>
-<connects>
-	officeAtrium
-	none
-	none
-	none
-</connects>
-<triggers>
-	<trigger>
-		MUST_NOT_HAVE
-		KEYS
-		
-You left your keys in your pocket, and the alarm goes of. What did you expect?
-Try again.
-	</trigger>
-		<trigger>
-			MUST_NOT_HAVE
-			WALLET
-			
-You left your wallet in your pocket, and the alarm goes of. What did you expect?
-Try again.
-		</trigger>
-			<trigger>
-				MUST_NOT_HAVE
-				REMOTE
-				
-For some reason you had your TV Remote on you, and the alarm goes of. What did you expect?
-Try again.
-			</trigger>
-		</triggers>
-	</location>
-		<location>
-		<name>
-			OFFICE ATRIUM
-		</name>
-		<description>
-			 You step out into a grand atrium. The exterior of the building certainly doesn't let on the
- grandeur contained within. A domed glass skylight lets golden rays of sun spill across the central
- waiting area. The walls and supporting columns appear to be made of a milky white marble with golden
- inlays in intricate patterns. Looking up, you can see balconies encircling the open area for each of the
- five stories. It really is an impressive sight to behold.
- 
- In front of you is the RECEPTION DESK.
- Behind you is the way you came in, through the SECURITY CORRIDOR.
- To your left are the main floor WASHROOMS.
- To your right is the ELEVATOR up to the floor that your office is on.
-		</description>
-		<id>
-			officeAtrium
-		</id>
-		<items>
-	</items>
-	<connects>
-		officeReception
-		officeElevator
-		officeSecurity
-		officeWashrooms
 	</connects>
 	<triggers>
 		<trigger>
@@ -519,25 +387,24 @@ Shouldn't be triggered
 </location>
 	<location>
 	<name>
-		OFFICE RECEPTION
+		CAFE INTERIOR
 	</name>
 	<description>
-		 You walk up to the reception area. Normally a sweet younger lady sits behind the
- solid marble counter, greeting newcomers. Today however, the entire atrium is deserted.
- You begin to feel uneasy.
+		 The interior of the cafe is tastefully decorated with themes of Parisian and Roman cafes.
+ The smell of roasting coffee is very strong in here.
  
- The ATRIUM is behind you.
+ The CAFE PATIO is to your left.
 	</description>
 	<id>
-		officeReception
+		cafeInterior
 	</id>
 	<items>
 </items>
 <connects>
 	none
+	inaccessible
 	none
-	officeAtrium
-	none
+	cafeExterior
 </connects>
 <triggers>
 	<trigger>
@@ -550,18 +417,130 @@ Shouldn't be triggered
 </location>
 <location>
 <name>
-	WASHROOMS
+	OFFICE LOBBY
 </name>
 <description>
-	 The washrooms are just as luxurious as the atrium you just came from. You note
- the stylistic change in marble from smooth, creamy white, to deep black with white flecks.
- The gold inlay is just as prevalent, and is now complemented by a host of gold and brass
- handles, fittings, faucets, and lighting fixtures.
+	 You tap your security pass to the sensor and enter the lobby of your office building.
+ The interior is overly air-conditioned, and goosebumps
+ immediatly start to form on your arms. Ahead of you is metal-detecting
+ archway with a sign reminding you to empty your pockets of metallic objects before passing through.
+ Your items will be waiting for you on the other side.
+ 
+ The ARCHWAY is in front of you.
+ The EXIT is behind you.
+</description>
+<id>
+	officeLobby
+</id>
+<items>
+</items>
+<connects>
+officeSecurity
+none
+officeExterior
+none
+</connects>
+<triggers>
+<trigger>
+	MUST_HAVE
+	PASS
+	
+You don't have your security pass on you and consequently can't enter the building.
+</trigger>
+</triggers>
+</location>
+<location>
+<name>
+OFFICE SECURITY
+</name>
+<description>
+ You pass through to the other side of the scanner.
+ The MAIN ATRIUM opens up in front of you.
+</description>
+<id>
+officeSecurity
+</id>
+<items>
+</items>
+<connects>
+officeAtrium
+none
+none
+none
+</connects>
+<triggers>
+<trigger>
+MUST_NOT_HAVE
+KEYS
+
+You left your keys in your pocket, and the alarm goes of. What did you expect?
+Try again.
+</trigger>
+<trigger>
+	MUST_NOT_HAVE
+	WALLET
+	
+You left your wallet in your pocket, and the alarm goes of. What did you expect?
+Try again.
+</trigger>
+	<trigger>
+		MUST_NOT_HAVE
+		REMOTE
+		
+For some reason you had your TV Remote on you, and the alarm goes of. What did you expect?
+Try again.
+	</trigger>
+</triggers>
+</location>
+<location>
+<name>
+	OFFICE ATRIUM
+</name>
+<description>
+	 You step out into a grand atrium. The exterior of the building certainly doesn't let on the
+ grandeur contained within. A domed glass skylight lets golden rays of sun spill across the central
+ waiting area. The walls and supporting columns appear to be made of a milky white marble with golden
+ inlays in intricate patterns. Looking up, you can see balconies encircling the open area for each of the
+ five stories. It really is an impressive sight to behold.
+ 
+ In front of you is the RECEPTION DESK.
+ Behind you is the way you came in, through the SECURITY CORRIDOR.
+ To your left are the main floor WASHROOMS.
+ To your right is the ELEVATOR up to the floor that your office is on.
+</description>
+<id>
+	officeAtrium
+</id>
+<items>
+</items>
+<connects>
+officeReception
+officeElevator
+officeSecurity
+officeWashrooms
+</connects>
+<triggers>
+<trigger>
+	MUST_HAVE
+	NONE
+	
+Shouldn't be triggered
+</trigger>
+</triggers>
+</location>
+<location>
+<name>
+OFFICE RECEPTION
+</name>
+<description>
+ You walk up to the reception area. Normally a sweet younger lady sits behind the
+ solid marble counter, greeting newcomers. Today however, the entire atrium is deserted.
+ You begin to feel uneasy.
  
  The ATRIUM is behind you.
 </description>
 <id>
-	officeWashrooms
+officeReception
 </id>
 <items>
 </items>
@@ -573,9 +552,41 @@ none
 </connects>
 <triggers>
 <trigger>
-	MUST_HAVE
-	NONE
-	
+MUST_HAVE
+NONE
+
+Shouldn't be triggered
+</trigger>
+</triggers>
+</location>
+<location>
+<name>
+WASHROOMS
+</name>
+<description>
+ The washrooms are just as luxurious as the atrium you just came from. You note
+ the stylistic change in marble from smooth, creamy white, to deep black with white flecks.
+ The gold inlay is just as prevalent, and is now complemented by a host of gold and brass
+ handles, fittings, faucets, and lighting fixtures.
+ 
+ The ATRIUM is behind you.
+</description>
+<id>
+officeWashrooms
+</id>
+<items>
+</items>
+<connects>
+none
+none
+officeAtrium
+none
+</connects>
+<triggers>
+<trigger>
+MUST_HAVE
+NONE
+
 Shouldn't be triggered
 </trigger>
 </triggers>
@@ -672,9 +683,9 @@ complexHall02
 <items>
 </items>
 <connects>
-none
+complexHall03
 complexStorage
-none
+complexHall01
 complexLabMain
 </connects>
 <triggers>
@@ -710,6 +721,66 @@ BATTERIES
 </description>
 <use>
 The batteries are in the flashlight
+</use>
+<mass>
+1
+</mass>
+<type>
+0
+</type>
+<value>
+10
+</value>
+</item>
+<item>
+<name>
+WIRE
+</name>
+<description>
+ Some spools of copper WIRE.
+</description>
+<use>
+You don't really have any use for this.
+</use>
+<mass>
+1
+</mass>
+<type>
+0
+</type>
+<value>
+10
+</value>
+</item>
+<item>
+<name>
+BUBBLEWRAP
+</name>
+<description>
+ A large sheet of BUBBLEWRAP
+</description>
+<use>
+Popping bubblewrap is the perfect reaction to a situation like this.
+</use>
+<mass>
+1
+</mass>
+<type>
+0
+</type>
+<value>
+1
+</value>
+</item>
+<item>
+<name>
+PAPER
+</name>
+<description>
+ A ream of PAPER.
+</description>
+<use>
+You make an airplane out of one of the sheets and throw it. It doesn't do too bad.
 </use>
 <mass>
 1
@@ -796,6 +867,7 @@ LABORATORY
  You step through the door into the room. Pipes crisscross the walls and ceiling.
  Broken glass from smashed flasks and phials is spread out across the floor. You definitely
  did NOT know about this place under the office.
+ 
  There is a dark DOORWAY to your right.
  The main HALLWAY is behind you.
 </description>
@@ -827,6 +899,7 @@ LABORATORY OFFICE
  In the light of your flashlight, you can see racks of server equipment on
  one wall, and a row of computer workstations along the other. A long window
  looks back into the lab.
+ 
  The DOOR to the laboratory is behind you.
 </description>
 <id>
@@ -875,10 +948,116 @@ The flashlight has no batteries.
 </trigger>
 </triggers>
 </location>
+<location>
+<name>
+HALLWAY ENDING
+</name>
+<description>
+ The alarm ringing fades slightly as you get further away from the source of the noise.
+ Up ahead a glowing red "EXIT" sign is now clearly visible, with a sort of blast-door
+ and scanner set into the wall beneath it.
+ 
+ Surely this is the way out.
+ 
+ The BLAST DOOR is in front of you.
+ The HALL is behind you.
+</description>
+<id>
+complexHall03
+</id>
+<items>
+</items>
+<connects>
+complexExit
+none
+complexHall02
+none
+</connects>
+<triggers>
+<trigger>
+MUST_HAVE
+NONE
+
+This should never be triggered
+</trigger>
+</triggers>
+</location>
+<location>
+<name>
+COMPLEX EXIT
+</name>
+<description>
+ You swipe the manager card an the blast doors open with a pneumatic hiss. It's another elevator.
+ You step in hesitantly, remembering your recent experiences with elevators,
+ and the doors close with a thud. Again you get that heavy feeling as you rise.
+ 
+ Finally, the elevator reaches its destination without incident. The doors part slowly.
+ Blinding daylight streams through the doorway, and you shield your eyes with
+ your hand as you pass through.
+ 
+ You can see that you have passed through a secret panel on th back wall of the cafe by your office.
+ It is deserted, just like your office building. In fact, now that you think about it, you haven't seen
+ anybody today except for the bus driver this morning. This is very odd.
+ 
+ You think to yourself "I must be dreaming!".
+ 
+ And that does it.
+ 
+ The sunlight intensifies until your vision is entirely white.
+ 
+</description>
+<id>
+complexExit
+</id>
+<items>
+</items>
+<connects>
+cafeInterior
+none
+none
+none
+</connects>
+<triggers>
+<trigger>
+MUST_HAVE
+MANAGER CARD
+
+You try your security pass, but you need a card with higher security clearance.
+</trigger>
+</triggers>
+</location>
+<location>
+<name>
+INACCESSIBLE
+</name>
+<description>
+ This location should never be accessible.
+ Only use for the trigger text.
+</description>
+<id>
+inaccessible
+</id>
+<items>
+</items>
+<connects>
+none
+none
+none
+none
+</connects>
+<triggers>
+<trigger>
+MUST_HAVE
+THIS ITEM DOESN'T EXIST
+
+You cannot go to this location.
+</trigger>
+</triggers>
+</location>
 </locations>
 <player>
 <location>
-complexStorage
+officeReception
 </location>
 <items>
 <item>
@@ -903,13 +1082,13 @@ Surprisingly you decide to brush your teeth.
 </item>
 <item>
 <name>
-WIRE
+WALLET
 </name>
 <description>
- Some spools of copper WIRE.
+ A worn leather WALLET that holds your id, Bank Card, and whatever loose change you happen to have.
 </description>
 <use>
-You don't really have any use for this.
+You try to use your wallet.
 </use>
 <mass>
 1
@@ -918,51 +1097,12 @@ You don't really have any use for this.
 0
 </type>
 <value>
-10
+0
 </value>
-</item>
-<item>
-<name>
-	PAPER
-</name>
-<description>
-	 A ream of PAPER.
-</description>
-<use>
-	You make an airplane out of one of the sheets and throw it. It doesn't do too bad.
-</use>
-<mass>
-	1
-</mass>
-<type>
-	0
-</type>
-<value>
-	10
-</value>
-</item>
-<item>
-	<name>
-		BUBBLEWRAP
-	</name>
-	<description>
-		 A large sheet of BUBBLEWRAP
-	</description>
-	<use>
-		Popping bubblewrap is the perfect reaction to a situation like this.
-	</use>
-	<mass>
-		1
-	</mass>
-	<type>
-		0
-	</type>
-	<value>
-		1
-	</value>
 </item>
 </items>
 </player>
 <history>
+officeAtrium
 </history>
 </game>
