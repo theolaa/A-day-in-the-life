@@ -24,6 +24,16 @@ public class GameController {
 	private boolean gameFinished = false;
 	private boolean gameWon = false;
 
+	String victoryText = " Finally, your eyes re-adjust to the light, and you see that it is just sunlight streaming in through\r\n" +
+			" the window in your bedroom. Your alarm clock shows '07:30', and the alarm is blaring in your ear. \r\n" +
+			" You groggily fumble around until you manage to turn it off.\r\n" +
+			" \r\n" +
+			" Time to start your day, head to work, all that normal stuff.\r\n" +
+			" \r\n" +
+			" Just another day.\r\n" +
+			" \r\n" +
+			" A day in the life...";
+
 	// Scanner for input
 	private Scanner s = new Scanner(System.in);
 
@@ -66,18 +76,27 @@ public class GameController {
 				// "Won"
 				if (gameWon) {
 
-					System.out.println("Congratulations!");
+					System.out.println("Press ENTER to continue...");
+
+					@SuppressWarnings("unused")
+					String temp = s.nextLine();
+
+					System.out.println(victoryText);
+
+					System.out.println("\nCongratulations, you won!");
 
 				} else {
 
 					System.out.println("\nGame Over...");
-					System.out.println();
-					System.out.println("Returning to main menu.");
-
-					gameFinished = false;
-					gameWon = false;
 
 				}
+
+
+				gameFinished = false;
+				gameWon = false;
+
+				System.out.println();
+				System.out.println("Returning to main menu.");
 
 			}
 
@@ -129,7 +148,18 @@ public class GameController {
 
 			describeSituation();
 
+			if (player.location().getLocationId().equals("complexExit")) {
+
+				gameWon = true;
+				gameFinished = true;
+				inGame = false;
+				return;
+
+			}
+
 		}
+
+
 
 		// This is what gets commands over and over until it is indicated that a new
 		// turn should begin.

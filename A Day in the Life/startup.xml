@@ -55,7 +55,7 @@
 						1
 					</mass>
 					<type>
-						1
+						0
 					</type>
 					<value>
 						0
@@ -66,7 +66,7 @@
 						Pass
 					</name>
 					<description>
-						A plain lanyard that holds your work security PASS.
+						A plain lanyard that holds your work security PASS, marked with a bold "C".
 					</description>
 					<use>
 						You use the Security Pass.
@@ -112,7 +112,7 @@
 				<trigger>
 					MUST_HAVE
 					NONE
-					This should never be triggered.	
+					This should never be triggered.
 				</trigger>
 			</triggers>
 		</location>
@@ -145,7 +145,7 @@
 					</description>
 					<use>
 						You put on your clothes.
-					</use>	
+					</use>
 					<mass>
 						2
 					</mass>
@@ -187,7 +187,7 @@
 				<trigger>
 					MUST_HAVE
 					NONE
-					This should never be triggered.	
+					This should never be triggered.
 				</trigger>
 			</triggers>
 		</location>
@@ -216,7 +216,7 @@
 				<trigger>
 					MUST_HAVE
 					NONE
-					This should never be triggered.	
+					This should never be triggered.
 				</trigger>
 			</triggers>
 		</location>
@@ -231,8 +231,8 @@
 				There is a dead flower garden flanking the front steps.
 				The whole place has definitely seen better days.
 				
-				Your front door is in front of you.
-				The road and bus stop are behind you, down your short driveway.
+				Your FRONT DOOR is in front of you.
+				The road and BUS STOP are behind you, down your short driveway.
 			</description>
 			<id>
 				house
@@ -249,7 +249,7 @@
 				<trigger>
 					MUST_HAVE
 					CLOTHES
-					You should probably put some clothes on. 
+					You should probably put some clothes on.
 				</trigger>
 			</triggers>
 		</location>
@@ -258,7 +258,7 @@
 				Bus Stop
 			</name>
 			<description>
-				Just as you take a seat to wait for the bus, it comes into 
+				Just as you take a seat to wait for the bus, it comes into
 				view and lurches to a violent stop with a screech of rubber.
 				
 				The bus to your OFFICE BUILDING is ahead of you.
@@ -305,7 +305,7 @@
 				officeLobby
 				park
 				busStop
-				cafe
+				cafeExterior
 			</connects>
 			<triggers>
 				<trigger>
@@ -320,13 +320,13 @@
 				Park
 			</name>
 			<description>
-				You decide to head over to the city park, only a block away 
+				You decide to head over to the city park, only a block away
 				from your office building. In fact, you can actually see it out of your office window.
-				It's well kept with plenty of places to	sit and reflect. 
-				The main attraction is a tranquil pond located centrally that is home 
+				It's well kept with plenty of places to	sit and reflect.
+				The main attraction is a tranquil pond located centrally that is home
 				to countless ducks and geese.
 				
-				Your OFFICE BUILDING is to your right, back down the road. 
+				Your OFFICE BUILDING is to your right, back down the road.
 			</description>
 			<id>
 				park
@@ -342,12 +342,12 @@
 					<use>
 						You hit yourself with the stick. It hurts. What did you expect?
 					</use>
-					<type>
-						0
-					</type>
 					<mass>
 						1
 					</mass>
+					<type>
+						0
+					</type>
 					<value>
 						1
 					</value>
@@ -373,19 +373,20 @@
 			</name>
 			<description>
 				You arrive at the cute little cafe a short walk from your office building.
-				The sun is shining nicely today, and the combination of 
+				The sun is shining nicely today, and the combination of
 				sunlight spreading across the outdoor seating area and the smell
 				of roasting coffee is rather pleasant.
 				
-				Your OFFICE BUILDING is to your left, back down the road. 				
+				The CAFE interior is in front of you.
+				Your OFFICE BUILDING is to your left, back down the road.
 			</description>
 			<id>
-				cafe
+				cafeExterior
 			</id>
 			<items>
 			</items>
 			<connects>
-				none
+				cafeInterior
 				none
 				none
 				officeExterior
@@ -397,7 +398,36 @@
 					Shouldn't be triggered
 				</trigger>
 			</triggers>
-		</location>	
+		</location>
+		<location>
+			<name>
+				Cafe Interior
+			</name>
+			<description>
+				The interior of the cafe is tastefully decorated with themes of Parisian and Roman cafes.
+				The smell of roasting coffee is very strong in here.
+				
+				The CAFE PATIO is to your left.
+			</description>
+			<id>
+				cafeInterior
+			</id>
+			<items>
+			</items>
+			<connects>
+				none
+				inaccessible
+				none
+				cafeExterior
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					NONE
+					Shouldn't be triggered
+				</trigger>
+			</triggers>
+		</location>		
 		<location>
 			<name>
 				Office Lobby
@@ -405,8 +435,8 @@
 			<description>
 				You tap your security pass to the sensor and enter the lobby of your office building.
 				The interior is overly air-conditioned, and goosebumps
-				immediatly start to form on your arms. Ahead of you is metal-detecting 
-				archway with a sign reminding you to empty your pockets of metallic objects before passing through. 
+				immediatly start to form on your arms. Ahead of you is metal-detecting
+				archway with a sign reminding you to empty your pockets of metallic objects before passing through.
 				Your items will be waiting for you on the other side.
 				
 				The ARCHWAY is in front of you.
@@ -427,7 +457,7 @@
 				<trigger>
 					MUST_HAVE
 					PASS
-					You don't have your security pass on you and consequently can't enter the building. 
+					You don't have your security pass on you and consequently can't enter the building.
 				</trigger>
 			</triggers>
 		</location>
@@ -437,7 +467,6 @@
 			</name>
 			<description>
 				You pass through to the other side of the scanner.
-				
 				The MAIN ATRIUM opens up in front of you.
 			</description>
 			<id>
@@ -477,11 +506,11 @@
 				Office Atrium
 			</name>
 			<description>
-				You step out into a grand atrium. The exterior of the building certainly doesn't let on the 
+				You step out into a grand atrium. The exterior of the building certainly doesn't let on the
 				grandeur contained within. A domed glass skylight lets golden rays of sun spill across the central
 				waiting area. The walls and supporting columns appear to be made of a milky white marble with golden
-				inlays in intricate patterns. Looking up, you can see balconies encircling the open area for each of the 
-				five stories. It really is an impressive sight to behold. 
+				inlays in intricate patterns. Looking up, you can see balconies encircling the open area for each of the
+				five stories. It really is an impressive sight to behold.
 				
 				In front of you is the RECEPTION DESK.
 				Behind you is the way you came in, through the SECURITY CORRIDOR.
@@ -512,12 +541,11 @@
 				Office Reception
 			</name>
 			<description>
-				You walk up to the reception area. Normally a sweet younger lady sits behind the 
+				You walk up to the reception area. Normally a sweet younger lady sits behind the
 				solid marble counter, greeting newcomers. Today however, the entire atrium is deserted.
-				
 				You begin to feel uneasy.
 				
-				The ATRIUM is behind you. 
+				The ATRIUM is behind you.
 			</description>
 			<id>
 				officeReception
@@ -543,10 +571,10 @@
 				Washrooms
 			</name>
 			<description>
-				The washrooms are just as luxurious as the atrium you just came from. You note 
+				The washrooms are just as luxurious as the atrium you just came from. You note
 				the stylistic change in marble from smooth, creamy white, to deep black with white flecks.
-				The gold inlay is just as prevalent, and is now complemented by a host of gold and brass 
-				handles, fittings, faucets, and lighting fixtures. 
+				The gold inlay is just as prevalent, and is now complemented by a host of gold and brass
+				handles, fittings, faucets, and lighting fixtures.
 				
 				The ATRIUM is behind you.
 			</description>
@@ -574,20 +602,21 @@
 				Elevator
 			</name>
 			<description>
-				You step into the elevator. Not surprisingly, it is outfitted with the same 
-				taste and expense as the rest of the building. You tap your security pass, and the 
+				You step into the elevator. Not surprisingly, it is outfitted with the same
+				taste and expense as the rest of the building. You tap your security pass, and the
 				doors close with a hiss. You feel slightly heavier as the elevetor begins its ascent.
 				
 				Suddenly, the main lighting shuts down and you are left in the red glow a single emergency
 				light set into the ceiling. An alarm starts to sound.
 				
-				You hear the shriek of tearing steel and your stomach lurches up into your throat as the 
+				You hear the shriek of tearing steel and your stomach lurches up into your throat as the
 				floor drops from under you. You slam into the roof of the now free falling elevator.
 				
 				Suddenly everything stops and you slam equally hard against the elevator floor.
-				
 				Picking yourself up, you see that the mangled elevator doors in front of you leave just enough room
 				to slip through them.
+				
+				The elevator DOORS are in front of you.
 			</description>
 			<id>
 				officeElevator
@@ -607,16 +636,16 @@
 					You need your security pass to activate the elevator.
 				</trigger>
 			</triggers>
-		</location>		
+		</location>
 		<location>
 			<name>
 				Elevator Hallway
 			</name>
 			<description>
-				You are at the beginning of a long hallway. The alarm still rings in the 
+				You are at the beginning of a long hallway. The alarm still rings in the
 				background, and the entire length of the hall is bathed in rotating red emergency lights.
+				New debris has rendered the ELEVATOR behind you inaccessible Not that you could use it anyways.
 				
-				New debris has rendered the ELEVATOR behind you inaccessible, not that you could use it anyways.
 				The rest of the HALLWAY opens up in front of you.
 			</description>
 			<id>
@@ -644,7 +673,7 @@
 			</name>
 			<description>
 				You are roughly in the middle of the hallway. Every time the rotating red lights pass along
-				the walls, you can see two doorways, one on each side of you. At the end of the hall you can make 
+				the walls, you can see two doorways, one on each side of you. At the end of the hall you can make
 				out what you believe is an EXIT sign.
 				
 				The END of the hall is in front of you.
@@ -658,9 +687,9 @@
 			<items>
 			</items>
 			<connects>
-				none
+				complexHall03
 				complexStorage
-				none
+				complexHall01
 				complexLabMain
 			</connects>
 			<triggers>
@@ -673,20 +702,104 @@
 		</location>
 		<location>
 			<name>
-
+				Storage Room
 			</name>
 			<description>
+				Row upon row of cardboard boxes are stacked on metal shelves in the red glow of the lighting.
+				There may be some useful items in the boxes.
 				
+				A small DESK sits on the far wall, directly across from you.
+				The DOOR to the hallway is behind you.
 			</description>
 			<id>
-				
+				complexStorage
 			</id>
 			<items>
+				<item>
+					<name>
+						Batteries
+					</name>
+					<description>
+						A couple of D-Cell BATTERIES.
+					</description>
+					<use>
+						The batteries are in the flashlight
+					</use>
+					<mass>
+						1
+					</mass>
+					<type>
+						0
+					</type>
+					<value>
+						10
+					</value>
+				</item>
+				<item>
+					<name>
+						Wire
+					</name>
+					<description>
+						Some spools of copper WIRE.
+					</description>
+					<use>
+						You don't really have any use for this.
+					</use>
+					<mass>
+						1
+					</mass>
+					<type>
+						0
+					</type>
+					<value>
+						10
+					</value>
+				</item>
+				<item>
+					<name>
+						Bubblewrap
+					</name>
+					<description>
+						A large sheet of BUBBLEWRAP
+					</description>
+					<use>
+						Popping bubblewrap is the perfect reaction to a situation like this.
+					</use>
+					<mass>
+						1
+					</mass>
+					<type>
+						0
+					</type>
+					<value>
+						1
+					</value>
+				</item>
+				<item>
+					<name>
+						PAPER
+					</name>
+					<description>
+						A ream of PAPER.
+					</description>
+					<use>
+						You make an airplane out of one of the sheets and throw it. It doesn't do too bad.
+					</use>
+					<mass>
+						1
+					</mass>
+					<type>
+						0
+					</type>
+					<value>
+						10
+					</value>
+				</item>
 			</items>
 			<connects>
+				complexStorageDesk
 				none
-				none
-				none
+				complexHall02
 				none
 			</connects>
 			<triggers>
@@ -699,13 +812,225 @@
 		</location>
 		<location>
 			<name>
-
+				Complex Desk
 			</name>
 			<description>
+				The desk is strewn with papers and personal effects. A monitor sits on the desk,
+				but the cables have been cut and there is no actual computer in sight.
+				There may be some items of use in one of the drawers.
+				
+				The STORAGE ROOM is behind you.
+			</description>
+			<id>
+				complexStorageDesk
+			</id>
+			<items>
+				<item>
+					<name>
+						Flashlight
+					</name>
+					<description>
+						A small FLASHLIGHT.
+					</description>
+					<use>
+						The flashlight is now on
+					</use>
+					<mass>
+						1
+					</mass>
+					<type>
+						0
+					</type>
+					<value>
+						10
+					</value>
+				</item>
+			</items>
+			<connects>
+				none
+				none
+				complexStorage
+				none
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					NONE
+					Shouldn't be triggered
+				</trigger>
+			</triggers>
+		</location>
+		<location>
+			<name>
+				Laboratory
+			</name>
+			<description>
+				You step through the door into the room. Pipes crisscross the walls and ceiling.
+				Broken glass from smashed flasks and phials is spread out across the floor. You definitely
+				did NOT know about this place under the office.
+				
+				There is a dark DOORWAY to your right.
+				The main HALLWAY is behind you.
+			</description>
+			<id>
+				complexLabMain
+			</id>
+			<items>
+			</items>
+			<connects>
+				none
+				complexLabOffice
+				none
+				complexHall02
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					NONE
+					Shouldn't be triggered
+				</trigger>
+			</triggers>
+		</location>
+		<location>
+			<name>
+				Laboratory Office
+			</name>
+			<description>
+				In the light of your flashlight, you can see racks of server equipment on
+				one wall, and a row of computer workstations along the other. A long window
+				looks back into the lab.
+				
+				The DOOR to the laboratory is behind you.
+			</description>
+			<id>
+				complexLabOffice
+			</id>
+			<items>
+				<item>
+					<name>
+						Manager Card
+					</name>
+					<description>
+						A single MANAGER CARD, looks like your security pass, but marked with a bold "A".
+					</description>
+					<use>
+						This pass certainly has a higher security clearence than yours.
+					</use>
+					<mass>
+						1
+					</mass>
+					<type>
+						1
+					</type>
+					<value>
+						1000
+					</value>
+				</item>
+			</items>
+			<connects>
+				none
+				none
+				complexLabMain
+				none
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					FLASHLIGHT
+					It's too dark to see.
+				</trigger>
+				<trigger>
+					MUST_HAVE
+					BATTERIES
+					The flashlight has no batteries.
+				</trigger>
+			</triggers>
+		</location>
+		<location>
+			<name>
+				Hallway Ending
+			</name>
+			<description>
+				The alarm ringing fades slightly as you get further away from the source of the noise.
+				Up ahead a glowing red "EXIT" sign is now clearly visible, with a sort of blast-door
+				and scanner set into the wall beneath it.
+				 Surely this is the way out.
+				
+				The BLAST DOOR is in front of you.
+				The HALL is behind you.
+			</description>
+			<id>
+				complexHall03
+			</id>
+			<items>
+			</items>
+			<connects>
+				complexExit
+				none
+				complexHall02
+				none
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					NONE
+					This should never be triggered
+				</trigger>
+			</triggers>
+		</location>
+		<location>
+			<name>
+				Complex Exit
+			</name>
+			<description>
+				You swipe the manager card an the blast doors open with a pneumatic hiss. It's another elevator.
+				You step in hesitantly, remembering your recent experiences with elevators,
+				and the doors close with a thud. Again you get that heavy feeling as you rise.
+				
+				Finally, the elevator reaches its destination without incident. The doors part slowly. 
+				Blinding daylight streams through the doorway, and you shield your eyes with 
+				your hand as you pass through.
+				
+				You can see that you have passed through a secret panel on th back wall of the cafe by your office.
+				It is deserted, just like your office building. In fact, now that you think about it, you haven't seen
+				anybody today except for the bus driver this morning. This is very odd. 
+				
+				You think to yourself "I must be dreaming!".
+				
+				And that does it.
+				
+				The sunlight intensifies until your vision is entirely white.
 				
 			</description>
 			<id>
-				
+				complexExit
+			</id>
+			<items>
+			</items>
+			<connects>
+				cafeInterior
+				none
+				none
+				none
+			</connects>
+			<triggers>
+				<trigger>
+					MUST_HAVE
+					MANAGER CARD
+					You try your security pass, but you need a card with higher security clearance.
+				</trigger>
+			</triggers>
+		</location>
+		<location>
+			<name>
+				Inaccessible
+			</name>
+			<description>
+				This location should never be accessible.
+				Only use for the trigger text.
+			</description>
+			<id>
+				inaccessible
 			</id>
 			<items>
 			</items>
@@ -718,11 +1043,11 @@
 			<triggers>
 				<trigger>
 					MUST_HAVE
-					NONE
-					Shouldn't be triggered
+					THIS ITEM DOESN'T EXIST
+					You cannot go to this location.
 				</trigger>
 			</triggers>
-		</location>														
+		</location>						
 	</locations>
 	<player>
 		<location>

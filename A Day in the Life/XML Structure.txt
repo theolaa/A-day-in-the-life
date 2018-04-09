@@ -47,3 +47,26 @@ Item Structure:
 				</trigger>
 			</triggers>
 		</location>
+		
+		
+		
+				<item>
+					<name>
+						
+					</name>
+					<description>
+						
+					</description>
+					<use>
+						
+					</use>
+					<type>
+						
+					</type>
+					<mass>
+						
+					</mass>
+					<value>
+						
+					</value>
+				</item>
