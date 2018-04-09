@@ -1,7 +1,7 @@
 Project Name: A Day in the life... 
 Author: Theo Laanstra
 Date: March/April 2018
-Lines of Code: 2740
+Lines of Code: 2,740
 
 OPTIONAL: You can run the game the included Game.bat file. It opens up the game in a nicely styled Command Prompt window 
 to properly suite the Text Based Adventure style of the game.
