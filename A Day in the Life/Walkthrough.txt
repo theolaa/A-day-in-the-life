@@ -4,7 +4,8 @@ Date: March/April 2018
 Lines of Code: 2,740
 
 OPTIONAL: You can run the game the included Game.bat file. It opens up the game in a nicely styled Command Prompt window 
-to properly suite the Text Based Adventure style of the game.
+to properly suite the Text Based Adventure style of the game. Otherwise, just load the project in Eclipse 
+and use their console, but you won't get the stylization.
 
 Commands can be partially entered, but item names cannot. INV = INVENTORY, CLOTH != CLOTHES
 I will shorten some commands here for simplicity.
@@ -12,85 +13,85 @@ I will shorten some commands here for simplicity.
 Typing the following commands in order will let you complete the game.
 Walk-through:
 
-You are in your bedroom. Take your Clothes, and then go to your living room.
+1. You are in your bedroom. Take your Clothes, and then go to your living room.
 	TAKE CLOTHES
 	GO BACK
 
-You are in your living room. Grab your keys, wallet, and security pass.
+2. You are in your living room. Grab your keys, wallet, and security pass.
 	TAKE KEYS
 	TAKE WALLET
 	TAKE PASS
 
-Go out your front door
+3. Go out your front door
 	GO RIGHT
 	
-Go down your driveway to the Bus Stop
+4. Go down your driveway to the Bus Stop
 	GO BACKWARDS
 	
-Get on to the Bus
+5. Get on to the Bus
 	GO FORWARD
 	
-Go into the building
+6. Go into the building
 	GO FORWARD
 
-Drop metallic items
+7. Drop metallic items
 	DROP KEYS
 	DROP WALLET
 	
 	If you are carrying it for some reason
 	DROP REMOTE
 
-Go through the metal detector
+8. Go through the metal detector
 	GO FORWARD
 	
-Enter the Atrium
+9. Enter the Atrium
 	GO FORWARD
 	
-Enter the elevator
+10. Enter the elevator
 	GO RIGHT
-	
-Slip through the rubble
+
+11. Slip through the rubble
 	GO FORWARD
 	
-Go down the hall
+12. Go down the hall
 	GO FORWARD
-	
-Enter the storage room
+
+13. Enter the storage room
 	GO RIGHT
-	
-Grab the batteries
+
+14. Grab the batteries
 	TAKE BATTERIES
 
-Go to the desk
+15. Go to the desk
 	GO FORWARD
-	
-Take the flashlight
+
+16. Take the flashlight
 	TAKE FLASHLIGHT
-	
-Return to the hallway
+
+17. Return to the hallway
 	BACK
 	BACK
 	
-Enter the lab
+18. Enter the lab
 	GO LEFT
 	
-Enter the office
+19. Enter the office
 	GO RIGHT
 	
-Take the manager card
+20. Take the manager card
 	TAKE MANAGER CARD
 	
-Return to the hallway
+21. Return to the hallway
 	BACK
 	BACK
 	
-Proceed down the hall
+22. Proceed down the hall
 	GO FORWARD
 	
-Enter the doors
+23. Enter the doors
 	GO FOR
 	
-Press ENTER to read the rest of the text
+24. Press ENTER to read the rest of the text
 	[ENTER]
 	
 The game will now complete and return to the main command menu.
